@@ -1,0 +1,7 @@
+**/.vscode
+.idea
+
+typescript-electron/node_modules
+typescript-electron/dist
+typescript-electron/out
+typescript-electron/*.log*
