@@ -1,6 +1,55 @@
 **/.vscode
 .idea
 
+# ----------////////// DART-FLUTTER //////////----------
+
+# Miscellaneous
+dart_flutter/*.class
+dart_flutter/*.log
+dart_flutter/*.pyc
+dart_flutter/*.swp
+dart_flutter/.DS_Store
+dart_flutter/.atom/
+dart_flutter/.buildlog/
+dart_flutter/.history
+dart_flutter/.svn/
+dart_flutter/migrate_working_dir/
+
+# IntelliJ related
+dart_flutter/*.iml
+dart_flutter/*.ipr
+dart_flutter/*.iws
+dart_flutter/.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+dart_flutter/**/doc/api/
+dart_flutter/**/ios/Flutter/.last_build_id
+dart_flutter/.dart_tool/
+dart_flutter/.flutter-plugins
+dart_flutter/.flutter-plugins-dependencies
+dart_flutter/.packages
+dart_flutter/.pub-cache/
+dart_flutter/.pub/
+dart_flutter/build/
+
+# Symbolication related
+dart_flutter/app.*.symbols
+
+# Obfuscation related
+dart_flutter/app.*.map.json
+
+# Android Studio will place build artifacts here
+dart_flutter/android/app/debug
+dart_flutter/android/app/profile
+dart_flutter/android/app/release
+
+# ----------////////// TYPESCRIPT-ELECTRON //////////----------
+
 typescript-electron/node_modules
 typescript-electron/dist
 typescript-electron/out
