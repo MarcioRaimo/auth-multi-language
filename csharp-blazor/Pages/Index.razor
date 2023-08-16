@@ -1,0 +1,89 @@
+﻿@page "/"
+@using csharp_blazor.Data;
+@inject IJSRuntime JsRuntime;
+
+<PageTitle>Auth</PageTitle>
+
+<EditForm Model="@input" class="my-card">
+	<div class="input">
+		<label>E-mail</label>
+		<InputText @bind-Value="input.email" />
+	</div>
+	<div class="input">
+		<label>Senha</label>
+		<InputText @bind-Value="input.password" />
+	</div>
+	<button onclick="@auth">
+		Autenticar
+	</button>
+	<button onclick="@register">
+		Registrar
+	</button>
+</EditForm>
+
+@code {
+	private InputData input = new();
+	private List<InputData> data = new List<InputData>();
+
+	private ValueTask showAlert(string txt)
+	{
+		return JsRuntime.InvokeVoidAsync("alert", txt);
+	}
+
+	private ValueTask console(string txt)
+	{
+		return JsRuntime.InvokeVoidAsync("console.log", txt);
+	}
+
+	private async void auth()
+	{
+		bool control = false;
+		foreach (InputData user in data)
+		{
+			if (user.email == input.email)
+			{
+				control = true;
+				if (user.password == input.password)
+				{
+					input.email = "";
+					input.password = "";
+					await showAlert("Usuário autenticado");
+					return;
+				}
+				await showAlert("Senha incorreta");
+				return;
+			}
+		}
+		if (!control)
+		{
+			await showAlert("Usuário não encontrado");
+		}
+	}
+
+	private async void register()
+	{
+		if (input.email.Length == 0 || input.password.Length == 0)
+		{
+			await showAlert("Preencha todos os campos");
+			return;
+		}
+		if (!input.email.Contains("@"))
+		{
+			await showAlert("E-mail inválido");
+			return;
+		}
+		foreach (InputData user in data)
+		{
+			if (user.email == input.email)
+			{
+				await showAlert("Usuário já existe");
+				return;
+			}
+		}
+		data.Add(input);
+		Database.writeFile(data, JsRuntime);
+		input.email = "";
+		input.password = "";
+		await showAlert("Usuário registrado");
+	}
+}

@@ -1,6 +1,12 @@
 **/.vscode
 .idea
 
+# ----------////////// CSHARP-BLAZOR //////////----------
+
+csharp-blazor/.vs
+csharp-blazor/bin
+csharp-blazor/obj
+
 # ----------////////// DART-FLUTTER //////////----------
 
 # Miscellaneous
