@@ -1,5 +1,7 @@
-**/.vscode
+.vscode
 .idea
+**/.vscode
+**/.idea
 
 # ----------////////// CSHARP-BLAZOR //////////----------
 
@@ -53,6 +55,14 @@ dart_flutter/app.*.map.json
 dart_flutter/android/app/debug
 dart_flutter/android/app/profile
 dart_flutter/android/app/release
+
+# ----------////////// JAVA-JAVAFX //////////----------
+
+java-javafx/.gradle
+java-javafx/build
+java-javafx/!gradle/wrapper/gradle-wrapper.jar
+java-javafx/!**/src/main/**/build/
+java-javafx/!**/src/test/**/build/
 
 # ----------////////// TYPESCRIPT-ELECTRON //////////----------
 
